@@ -1,36 +1,3 @@
-/*import { Component } from '@angular/core';
-import { Router } from '@angular/router';
-import { CommonModule } from '@angular/common';
-import { FormsModule } from '@angular/forms';
-
-@Component({
-  selector: 'app-login',
-  standalone: true,
-  imports: [CommonModule, FormsModule],
-  templateUrl: './login.html',
-  styleUrls: ['./login.css']
-})
-export class LoginComponent {
-  studentEmail: string = '';
-  studentPassword: string = '';
-  facultyEmail: string = '';
-  facultyPassword: string = '';
-
-  constructor(private router: Router) { }
-
-  studentLogin() {
-    this.router.navigate(['/student-dashboard'], {
-      state: { email: this.studentEmail }
-    });
-  }
-
-  facultyLogin() {
-    this.router.navigate(['/faculty-dashboard'], {
-      state: { email: this.facultyEmail }
-    });
-  }
-}
-*/
 import { Component } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { Router } from '@angular/router';
@@ -45,18 +12,37 @@ import { CommonModule } from '@angular/common';
   styleUrl: './login.css'
 })
 export class LoginComponent {
-  facultyLogin() {
-    throw new Error('Method not implemented.');
-  }
-  studentEmail: any;
-  studentPassword: any;
-  facultyEmail: any;
-  facultyPassword: any;
+  // Student login fields
+  studentEmail = '';
+  studentPassword = '';
+
+  // Faculty login fields
+  facultyEmail = '';
+  facultyPassword = '';
+
   constructor(private router: Router) { }
 
+  // ✅ Student login handler
   onStudentLogin() {
-    // Here you can validate input if needed
-    this.router.navigate(['/student-dashboard']);
+    if (!this.studentEmail || !this.studentPassword) {
+      alert('Please enter both student email and password.');
+      return;
+    }
+
+    this.router.navigate(['/student-dashboard'], {
+      state: { email: this.studentEmail }
+    });
   }
 
+  // ✅ Faculty login handler
+  facultyLogin() {
+    if (!this.facultyEmail || !this.facultyPassword) {
+      alert('Please enter both faculty email and password.');
+      return;
+    }
+
+    this.router.navigate(['/faculty-dashboard'], {
+      state: { email: this.facultyEmail }
+    });
+  }
 }

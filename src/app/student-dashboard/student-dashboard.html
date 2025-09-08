@@ -20,11 +20,11 @@
 
         <!-- Colored attendance alert -->
         <p *ngIf="selectedCourse" [ngStyle]="{
-      'background-color': getAttendanceColor(),
-      padding: '10px',
-      'border-radius': '5px',
-      color: getAttendanceColor() === 'yellow' ? 'black' : 'white'
-    }">
+          'background-color': getAttendanceColor(),
+          padding: '10px',
+          'border-radius': '5px',
+          color: getAttendanceColor() === 'yellow' ? 'black' : 'white'
+        }">
             Your Attendance: {{ attendancePercentage }}%
         </p>
 
@@ -78,6 +78,10 @@
             </div>
         </div>
 
-        <p *ngIf="!selectedCourse">Select a course to view attendance</p>
+        <!-- Welcome message + prompt to select course (when no course selected) -->
+        <div *ngIf="!selectedCourse" style="margin-top: 20px;">
+            <h2>Welcome, {{ studentEmail }}</h2>
+            <p>Select a course to view attendance</p>
+        </div>
     </div>
 </div>
