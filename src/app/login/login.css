@@ -6,34 +6,52 @@
 
 .sidebar {
     width: 220px;
-    /* restore full width */
     background-color: #0c2340;
+    /* navy blue */
     color: white;
     display: flex;
-    align-items: flex-start;
-    justify-content: flex-start;
-    padding: 20px;
-    position: relative;
+    align-items: center;
+    justify-content: center;
 }
 
 .sidebar-content {
-    writing-mode: vertical-rl;
-    transform: rotate(180deg);
     font-size: 40px;
     font-weight: bold;
-    text-align: start;
-    white-space: nowrap;
+    writing-mode: vertical-rl;
+    transform: rotate(180deg);
 }
 
-.login-boxes {
+/* Container holding the heading and login boxes */
+.login-content {
     flex: 1;
     display: flex;
-    justify-content: center;
+    flex-direction: column;
+    /* Stack heading on top, boxes below */
     align-items: center;
-    gap: 40px;
+    /* Center horizontally */
+    justify-content: center;
+    /* Center vertically */
+    padding: 40px 20px;
     background: #f5f7fa;
 }
 
+.welcome-heading {
+    font-family: 'Georgia', serif;
+    font-size: 42px;
+    font-weight: 700;
+    margin-bottom: 70px;
+    color: #0c2340;
+    text-align: center;
+}
+
+/* Make login boxes side by side */
+.login-boxes {
+    display: flex;
+    gap: 40px;
+    /* space between student and faculty */
+}
+
+/* Individual login box style */
 .login-box {
     background: white;
     padding: 2rem;

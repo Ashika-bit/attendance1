@@ -7,7 +7,6 @@
         <h2>Welcome, {{ facultyEmail }}</h2>
         <h1>{{ course }} Course Dashboard</h1>
 
-
         <table class="attendance-table">
             <thead>
                 <tr>
@@ -36,4 +35,28 @@
                 </tr>
             </tbody>
         </table>
+
+        <!-- Add/Delete Student Form -->
+        <div class="student-action-form" style="margin-top: 2rem;">
+            <h3>Add or Delete Student</h3>
+            <label style="display: block; margin-bottom: 0.5rem;">
+                Roll No:
+                <input type="text" [(ngModel)]="formRollNo" placeholder="Enter Roll No" />
+            </label>
+            <label style="display: block; margin-bottom: 0.5rem;">
+                Name:
+                <input type="text" [(ngModel)]="formName" placeholder="Enter Student Name" />
+            </label>
+            <label style="display: block; margin-bottom: 1rem;">
+                Action:
+                <select [(ngModel)]="action">
+                    <option value="Add">Add</option>
+                    <option value="Delete">Delete</option>
+                </select>
+            </label>
+            <button (click)="submitAction()" style="padding: 0.5rem 1rem; font-weight: bold; cursor: pointer;">
+                Submit
+            </button>
+        </div>
     </div>
+</div>

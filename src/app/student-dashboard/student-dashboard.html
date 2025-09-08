@@ -35,7 +35,7 @@
             </canvas>
         </div>
 
-        <!-- Combined Table + Form Section -->
+        <!-- Combined Table Section -->
         <div *ngIf="selectedCourse" class="attendance-management">
             <!-- Date-wise attendance table -->
             <div class="attendance-table-container">
@@ -59,13 +59,15 @@
                     </tbody>
                 </table>
             </div>
+        </div>
+
+        <!-- Welcome section if no course selected -->
+        <div *ngIf="!selectedCourse" class="welcome-message">
+            <h2>Welcome, {{ studentEmail }}</h2>
+
+            <p>Track your daily attendance and stay on top of your academic journey!</p>
 
 
-
-            <!-- Welcome message + prompt to select course (when no course selected) -->
-            <div *ngIf="!selectedCourse" style="margin-top: 20px;">
-                <h2>Welcome, {{ studentEmail }}</h2>
-                <p>Select a course to view attendance</p>
-            </div>
         </div>
     </div>
+</div>

@@ -1,45 +1,52 @@
 <div class="login-container">
     <!-- Sidebar -->
     <div class="sidebar">
-        <div class="sidebar-content vertical-text">
+        <div class="sidebar-content">
             <span>Siemens Institute of Technology</span>
         </div>
     </div>
 
+    <!-- Login Content -->
+    <div class="login-content">
+        <h1 class="welcome-heading">Welcome to SIT Portal !</h1>
 
-    <!-- Two login boxes -->
-    <div class="login-boxes">
-        <!-- Student Login -->
-        <div class="login-box">
-            <h2>Student Login</h2>
-            <form>
-                <div class="form-group">
-                    <input type="email" placeholder="Student Email" [(ngModel)]="studentEmail" name="studentEmail"
-                        required />
-                </div>
-                <div class="form-group">
-                    <input type="password" placeholder="Password" [(ngModel)]="studentPassword" name="studentPassword"
-                        required />
-                </div>
-                <!-- ✅ type="button" so page won't refresh -->
-                <button type="button" class="login-btn" (click)="onStudentLogin()">Login</button>
-            </form>
-        </div>
+        <!-- Two login boxes side-by-side -->
+        <div class="login-boxes">
+            <!-- Student Login -->
+            <div class="login-box">
+                <h2>Student Login</h2>
+                <form>
+                    <div class="form-group">
+                        <input type="email" placeholder="Student Email" [(ngModel)]="studentEmail" name="studentEmail"
+                            required />
+                    </div>
+                    <div class="form-group">
+                        <input type="password" placeholder="Password" [(ngModel)]="studentPassword"
+                            name="studentPassword" required />
+                    </div>
+                    <button type="button" class="login-btn" (click)="onStudentLogin()">
+                        Login
+                    </button>
+                </form>
+            </div>
 
-        <!-- Faculty Login -->
-        <div class="login-box">
-            <h2>Faculty Login</h2>
-            <form>
-                <div class="form-group">
-                    <input type="email" placeholder="Faculty Email" [(ngModel)]="facultyEmail" name="facultyEmail"
-                        required />
-                </div>
-                <div class="form-group">
-                    <input type="password" placeholder="Password" [(ngModel)]="facultyPassword" name="facultyPassword"
-                        required />
-                </div>
-                <button type="button" class="login-btn" (click)="facultyLogin()">Login</button>
-            </form>
+            <!-- Faculty Login -->
+            <div class="login-box">
+                <h2>Faculty Login</h2>
+                <form>
+                    <div class="form-group">
+                        <input type="email" placeholder="Faculty Email" [(ngModel)]="facultyEmail" name="facultyEmail"
+                            required />
+                    </div>
+                    <div class="form-group">
+                        <input type="password" placeholder="Password" [(ngModel)]="facultyPassword"
+                            name="facultyPassword" required />
+                    </div>
+                    <button type="button" class="login-btn" (click)="facultyLogin()">
+                        Login
+                    </button>
+                </form>
+            </div>
         </div>
     </div>
 </div>
