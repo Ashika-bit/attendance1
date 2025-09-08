@@ -60,28 +60,12 @@
                 </table>
             </div>
 
-            <!-- Add new attendance record form -->
-            <div class="add-attendance-form">
-                <h3>Add Attendance Record</h3>
-                <label>
-                    Date:
-                    <input type="date" [(ngModel)]="newRecordDate" />
-                </label>
-                <label>
-                    Status:
-                    <select [(ngModel)]="newRecordStatus">
-                        <option value="Present">Present</option>
-                        <option value="Absent">Absent</option>
-                    </select>
-                </label>
-                <button (click)="addAttendanceRecord()">Add Record</button>
+
+
+            <!-- Welcome message + prompt to select course (when no course selected) -->
+            <div *ngIf="!selectedCourse" style="margin-top: 20px;">
+                <h2>Welcome, {{ studentEmail }}</h2>
+                <p>Select a course to view attendance</p>
             </div>
         </div>
-
-        <!-- Welcome message + prompt to select course (when no course selected) -->
-        <div *ngIf="!selectedCourse" style="margin-top: 20px;">
-            <h2>Welcome, {{ studentEmail }}</h2>
-            <p>Select a course to view attendance</p>
-        </div>
     </div>
-</div>

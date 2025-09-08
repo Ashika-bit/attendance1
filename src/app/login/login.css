@@ -6,17 +6,23 @@
 
 .sidebar {
     width: 220px;
+    /* restore full width */
     background-color: #0c2340;
-    /* navy blue */
     color: white;
     display: flex;
-    align-items: center;
-    justify-content: center;
+    align-items: flex-start;
+    justify-content: flex-start;
+    padding: 20px;
+    position: relative;
 }
 
 .sidebar-content {
-    font-size: 20px;
+    writing-mode: vertical-rl;
+    transform: rotate(180deg);
+    font-size: 40px;
     font-weight: bold;
+    text-align: start;
+    white-space: nowrap;
 }
 
 .login-boxes {
@@ -25,7 +31,6 @@
     justify-content: center;
     align-items: center;
     gap: 40px;
-    /* space between student and faculty */
     background: #f5f7fa;
 }
 

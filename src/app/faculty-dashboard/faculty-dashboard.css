@@ -20,3 +20,25 @@
     padding: 20px;
     background: #f5f7fa;
 }
+
+.attendance-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+.attendance-table th,
+.attendance-table td {
+    border: 1px solid #ddd;
+    padding: 10px;
+    text-align: left;
+}
+
+.attendance-table th {
+    background-color: #0c2340;
+    color: white;
+}
+
+button {
+    margin-right: 8px;
+}

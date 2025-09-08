@@ -22,26 +22,33 @@ export class LoginComponent {
 
   constructor(private router: Router) { }
 
-  // ✅ Student login handler
   onStudentLogin() {
-    if (!this.studentEmail || !this.studentPassword) {
-      alert('Please enter both student email and password.');
-      return;
+    // You can add validation here
+    if (this.studentEmail && this.studentPassword) {
+      this.router.navigate(['/student-dashboard'], {
+        state: { email: this.studentEmail }
+      });
+    } else {
+      alert('Please enter student email and password');
     }
-
-    this.router.navigate(['/student-dashboard'], {
-      state: { email: this.studentEmail }
-    });
   }
 
-  // ✅ Faculty login handler
   facultyLogin() {
-    if (!this.facultyEmail || !this.facultyPassword) {
-      alert('Please enter both faculty email and password.');
+    const courseMap: Record<string, string> = {
+      'faculty1@gmail.com': 'Maths',
+      'faculty2@gmail.com': 'Physics',
+      'faculty3@gmail.com': 'Chemistry',
+      'faculty4@gmail.com': 'English',
+      'faculty5@gmail.com': 'Computer Science'
+    };
+
+    const course = courseMap[this.facultyEmail];
+    if (!course) {
+      alert('Unrecognized faculty email');
       return;
     }
 
-    this.router.navigate(['/faculty-dashboard'], {
+    this.router.navigate(['/faculty-dashboard', course], {
       state: { email: this.facultyEmail }
     });
   }

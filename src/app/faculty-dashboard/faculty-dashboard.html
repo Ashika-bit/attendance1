@@ -5,6 +5,35 @@
     </div>
     <div class="main-content">
         <h2>Welcome, {{ facultyEmail }}</h2>
-        <!-- Content area -->
+        <h1>{{ course }} Course Dashboard</h1>
+
+
+        <table class="attendance-table">
+            <thead>
+                <tr>
+                    <th>Roll No</th>
+                    <th>Name</th>
+                    <th>Attendance</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let student of students">
+                    <td>{{ student.rollNo }}</td>
+                    <td>{{ student.name }}</td>
+                    <td>
+                        <button (click)="markAttendance(student.rollNo, 'Present')"
+                            [disabled]="student.attendance === 'Present'">
+                            Present
+                        </button>
+                        <button (click)="markAttendance(student.rollNo, 'Absent')"
+                            [disabled]="student.attendance === 'Absent'">
+                            Absent
+                        </button>
+                        <span *ngIf="student.attendance" style="margin-left: 10px; font-weight: bold;">
+                            ✅ {{ student.attendance }}
+                        </span>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
     </div>
-</div>
