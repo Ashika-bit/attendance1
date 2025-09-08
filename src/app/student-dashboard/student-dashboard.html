@@ -5,9 +5,7 @@
             {{ studentEmail }}
         </div>
         <ul>
-            <li (click)="toggleCourses()">
-                Courses
-            </li>
+            <li (click)="toggleCourses()">Courses</li>
             <ul *ngIf="showCourses" class="courses-list">
                 <li *ngFor="let course of courses" (click)="selectCourse(course)">
                     {{ course }}
@@ -19,11 +17,66 @@
     <!-- Main Content -->
     <div class="content">
         <h2 *ngIf="selectedCourse">Attendance for {{ selectedCourse }}</h2>
-        <!-- Attendance with colored alert -->
-        <p *ngIf="selectedCourse"
-            [ngStyle]="{'background-color': getAttendanceColor(), 'padding': '10px', 'border-radius': '5px', 'color': getAttendanceColor() === 'yellow' ? 'black' : 'white'}">
+
+        <!-- Colored attendance alert -->
+        <p *ngIf="selectedCourse" [ngStyle]="{
+      'background-color': getAttendanceColor(),
+      padding: '10px',
+      'border-radius': '5px',
+      color: getAttendanceColor() === 'yellow' ? 'black' : 'white'
+    }">
             Your Attendance: {{ attendancePercentage }}%
         </p>
+
+        <!-- Line Chart showing attendance over dates -->
+        <div *ngIf="selectedCourse" class="chart-container">
+            <canvas baseChart [data]="lineChartData" [labels]="lineChartLabels" [options]="lineChartOptions"
+                [legend]="lineChartLegend" [type]="lineChartType">
+            </canvas>
+        </div>
+
+        <!-- Combined Table + Form Section -->
+        <div *ngIf="selectedCourse" class="attendance-management">
+            <!-- Date-wise attendance table -->
+            <div class="attendance-table-container">
+                <h3>Date-wise Attendance</h3>
+                <table class="attendance-table">
+                    <thead>
+                        <tr>
+                            <th>Date</th>
+                            <th>Status</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let record of attendanceData[selectedCourse]" (click)="onRecordClick(record)"
+                            style="cursor: pointer;">
+                            <td>{{ record.date }}</td>
+                            <td
+                                [ngClass]="{ present: record.status === 'Present', absent: record.status === 'Absent' }">
+                                {{ record.status }}
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <!-- Add new attendance record form -->
+            <div class="add-attendance-form">
+                <h3>Add Attendance Record</h3>
+                <label>
+                    Date:
+                    <input type="date" [(ngModel)]="newRecordDate" />
+                </label>
+                <label>
+                    Status:
+                    <select [(ngModel)]="newRecordStatus">
+                        <option value="Present">Present</option>
+                        <option value="Absent">Absent</option>
+                    </select>
+                </label>
+                <button (click)="addAttendanceRecord()">Add Record</button>
+            </div>
+        </div>
 
         <p *ngIf="!selectedCourse">Select a course to view attendance</p>
     </div>

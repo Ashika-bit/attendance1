@@ -47,23 +47,107 @@
     width: fit-content;
 }
 
-/* Green for attendance > 75% */
 .attendance-green {
     background-color: #4caf50;
-    /* green */
     color: white;
 }
 
-/* Yellow for attendance 60% - 75% */
 .attendance-yellow {
     background-color: #ffeb3b;
-    /* yellow */
     color: black;
 }
 
-/* Red for attendance below 60% */
 .attendance-red {
     background-color: #f44336;
-    /* red */
     color: white;
+}
+
+.chart-container {
+    max-width: 600px;
+    margin: 10px 0;
+}
+
+/* Section wrapping table + form side by side */
+.attendance-management {
+    display: flex;
+    align-items: flex-start;
+    gap: 40px;
+    margin-top: 10px;
+}
+
+/* Attendance Table */
+.attendance-table-container {
+    max-width: 400px;
+    flex: 1;
+}
+
+.attendance-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.attendance-table th,
+.attendance-table td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: left;
+}
+
+.attendance-table th {
+    background-color: #0c2340;
+    color: white;
+}
+
+.present {
+    color: green;
+    font-weight: bold;
+}
+
+.absent {
+    color: red;
+    font-weight: bold;
+}
+
+/* Add Attendance Form */
+.add-attendance-form {
+    flex: 1;
+    background-color: #ffffff;
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    max-width: 300px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.add-attendance-form h3 {
+    margin-top: 100;
+    margin-bottom: 15px;
+}
+
+.add-attendance-form label {
+    display: block;
+    margin-bottom: 10px;
+}
+
+.add-attendance-form input,
+.add-attendance-form select {
+    width: 100%;
+    padding: 6px 10px;
+    margin-top: 4px;
+    margin-bottom: 12px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+.add-attendance-form button {
+    padding: 8px 16px;
+    background-color: #0c2340;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.add-attendance-form button:hover {
+    background-color: #183b5c;
 }
