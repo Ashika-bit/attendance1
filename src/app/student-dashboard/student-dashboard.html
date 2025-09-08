@@ -19,7 +19,12 @@
     <!-- Main Content -->
     <div class="content">
         <h2 *ngIf="selectedCourse">Attendance for {{ selectedCourse }}</h2>
-        <p *ngIf="selectedCourse">Your Attendance: {{ attendancePercentage }}%</p>
+        <!-- Attendance with colored alert -->
+        <p *ngIf="selectedCourse"
+            [ngStyle]="{'background-color': getAttendanceColor(), 'padding': '10px', 'border-radius': '5px', 'color': getAttendanceColor() === 'yellow' ? 'black' : 'white'}">
+            Your Attendance: {{ attendancePercentage }}%
+        </p>
+
         <p *ngIf="!selectedCourse">Select a course to view attendance</p>
     </div>
 </div>

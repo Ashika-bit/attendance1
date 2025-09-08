@@ -34,13 +34,26 @@ export class StudentDashboard {
     // Dummy attendance data
     const dummyAttendance: any = {
       Maths: 85,
-      Physics: 78,
+      Physics: 60,
       Chemistry: 92,
-      English: 88,
-      "Computer Science": 95
+      English: 50,
+      "Computer Science": 35
     };
 
     this.attendancePercentage = dummyAttendance[course];
+  }
+  // Returns color based on attendance percentage
+  getAttendanceColor(): string {
+    if (this.attendancePercentage === null) {
+      return 'transparent'; // no color if no attendance selected
+    }
+    if (this.attendancePercentage < 60) {
+      return 'red';
+    } else if (this.attendancePercentage >= 60 && this.attendancePercentage <= 75) {
+      return 'yellow';
+    } else {
+      return 'green';
+    }
   }
 }
 

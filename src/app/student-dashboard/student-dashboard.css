@@ -38,3 +38,32 @@
     padding: 20px;
     background: #f5f7fa;
 }
+
+/* Attendance alert styles */
+.attendance-alert {
+    padding: 10px;
+    border-radius: 5px;
+    font-weight: bold;
+    width: fit-content;
+}
+
+/* Green for attendance > 75% */
+.attendance-green {
+    background-color: #4caf50;
+    /* green */
+    color: white;
+}
+
+/* Yellow for attendance 60% - 75% */
+.attendance-yellow {
+    background-color: #ffeb3b;
+    /* yellow */
+    color: black;
+}
+
+/* Red for attendance below 60% */
+.attendance-red {
+    background-color: #f44336;
+    /* red */
+    color: white;
+}
